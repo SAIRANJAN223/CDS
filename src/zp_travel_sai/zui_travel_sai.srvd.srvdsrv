@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for Travel sai'
+define service Zui_travel_sai {
+  expose ZC_TRAVEL_SAI as Travel;
+}

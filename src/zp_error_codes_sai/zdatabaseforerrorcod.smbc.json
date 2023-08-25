@@ -1,0 +1,39 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain Database for Error code Sai",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_DATABASEFORERRORCOD_O4",
+    "serviceName": "ZUI_DATABASEFORERRORCOD_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "DatabaseForErrorAll",
+    "name": "Database for Error code Sai",
+    "configurationGroup": "",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "DatabaseForErrorAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "DatabaseForErroText",
+        "tableType": "gridTable",
+        "creationModeName": "creationRow"
+      },
+      {
+        "entitySet": "DatabaseForErrorCod",
+        "tableType": "gridTable",
+        "creationModeName": "creationRow",
+        "rowCountMode": "auto"
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DatabaseForErrorAll'
+  }
+}
+annotate view ZC_SERROR_CODE_S with
+{
+  @UI.facet: [ {
+    id: 'Transport', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Transport', 
+    position: 1 , 
+    hidden: #(HideTransport)
+  }, 
+  {
+    id: 'ZI_SERROR_CODE', 
+    purpose: #STANDARD, 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Database for Error code Sai', 
+    position: 2 , 
+    targetElement: '_DatabaseForErrorCod'
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  SingletonID;
+  
+  @UI.hidden: true
+  HideTransport;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    importance: #HIGH
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'SelectCustomizingTransptReq', 
+    label: 'Select Transport'
+  } ]
+  TransportRequestID;
+}

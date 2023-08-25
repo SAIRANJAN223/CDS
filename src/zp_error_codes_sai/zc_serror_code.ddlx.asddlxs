@@ -1,0 +1,50 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DatabaseForErrorCod', 
+    typeNamePlural: 'DatabaseForErrorCods', 
+    title: {
+      type: #STANDARD, 
+      label: 'Database for Error code Sai', 
+      value: 'ErrorCode'
+    }
+  }
+}
+annotate view ZC_SERROR_CODE with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_SERROR_CODE', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Database for Error code Sai', 
+    position: 1 
+  }, 
+  {
+    id: 'ZI_SERROR_DESC', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Database for Error code Sai Text', 
+    position: 2 , 
+    targetElement: '_DatabaseForErroText'
+  } ]
+  ErrorCode;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  LastChangedAt;
+  
+  @UI.identification: [ {
+    hidden: true, 
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Description;
+}

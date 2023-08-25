@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DatabaseForErroText', 
+    typeNamePlural: 'DatabaseForErroTexts', 
+    title: {
+      type: #STANDARD, 
+      label: 'Database for Error code Sai Text', 
+      value: 'Langu'
+    }
+  }
+}
+annotate view ZC_SERROR_DESC with
+{
+  @UI.facet: [ {
+    id: 'ZI_SERROR_DESC', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Database for Error code Sai Text', 
+    position: 1 
+  } ]
+  @UI.identification: [ {
+    position: 1 , 
+    label: 'Langu'
+  } ]
+  @UI.lineItem: [ {
+    position: 1 , 
+    label: 'Langu'
+  } ]
+  Langu;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Description;
+}

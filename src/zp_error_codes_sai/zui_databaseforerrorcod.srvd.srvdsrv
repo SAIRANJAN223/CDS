@@ -1,0 +1,5 @@
+define service ZUI_DATABASEFORERRORCOD {
+  expose ZC_SERROR_CODE_S as DatabaseForErrorAll;
+  expose ZC_SERROR_CODE as DatabaseForErrorCod;
+  expose ZC_SERROR_DESC as DatabaseForErroText;
+}

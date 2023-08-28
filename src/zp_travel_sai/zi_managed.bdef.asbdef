@@ -1,0 +1,13 @@
+managed implementation in class zbp_i_managed unique;
+strict ( 2 );
+
+define behavior for zi_managed //alias <alias_name>
+persistent table zdb_travel_sai
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

@@ -1,15 +1,5 @@
-class ZBP_I_UNMANAGED definition
-  public
-  abstract
-  final
-  create public .
-
-public section.
-protected section.
-private section.
+CLASS zbp_i_unmanaged DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_unmanaged.
 ENDCLASS.
 
-
-
-CLASS ZBP_I_UNMANAGED IMPLEMENTATION.
+CLASS zbp_i_unmanaged IMPLEMENTATION.
 ENDCLASS.

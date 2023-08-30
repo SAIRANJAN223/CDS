@@ -1,0 +1,11 @@
+@EndUserText.label: 'Access control for ZC_FLI_TRA_SAI'
+@MappingRole: true
+define role ZC_FLI_TRA_SAI {
+    grant
+        select
+            on
+                ZC_FLI_TRA_SAI
+                    where
+                        inheriting conditions from entity ZI_FLI_TRA_SAI;
+                        
+}

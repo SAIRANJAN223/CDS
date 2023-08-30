@@ -1,0 +1,13 @@
+@EndUserText.label: 'Service definition for Flight Travel sai'
+define service Zui_fli_tra_sai {
+  expose ZC_FLI_TRA_SAI    as Travel;
+  expose ZC_FLI_BOOK_SAI   as Booking;
+  expose /DMO/I_Agency     as Agency;
+  expose /DMO/I_Customer   as Customer;
+  expose /DMO/I_Flight     as Flight;
+  expose /DMO/I_Carrier    as Carrier;
+  expose /DMO/I_Connection as Connection;
+  expose /DMO/I_Airport    as Airport;
+  expose I_Currency        as Currency;
+  expose I_Country         as country;
+}

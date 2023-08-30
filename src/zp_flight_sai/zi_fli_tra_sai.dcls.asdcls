@@ -1,0 +1,15 @@
+@EndUserText.label: 'Access control for Flight travel'
+@MappingRole: true
+define role ZI_FLI_TRA_SAI {
+    grant
+        select
+            on
+                ZI_FLI_TRA_SAI
+                    where
+//                    ( TravelStatus )                       
+//                      = aspect pfcg_auth ( ZAF_FT_SAI , ZAF_FT_SAI ,  actvt = '03') 
+//                        and
+//                        CurrencyCode = 'EUR';
+                        true;
+                        
+}

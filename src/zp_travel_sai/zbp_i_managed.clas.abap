@@ -1,15 +1,5 @@
-class ZBP_I_MANAGED definition
-  public
-  abstract
-  final
-  create public .
-
-public section.
-protected section.
-private section.
+CLASS zbp_i_managed DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_managed.
 ENDCLASS.
 
-
-
-CLASS ZBP_I_MANAGED IMPLEMENTATION.
+CLASS zbp_i_managed IMPLEMENTATION.
 ENDCLASS.

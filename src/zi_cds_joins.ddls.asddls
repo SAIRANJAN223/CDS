@@ -10,9 +10,9 @@ define view ZI_CDS_JOINS
     left outer join  zdb_sfcarrier    as _carrier    on _booking.carrier_id = _carrier.carrier_id
     right outer join zdb_sfcustomer   as _customer   on _booking.customer_id = _customer.customer_id
     right outer join zdb_sfbook_suppl as _book_suppl on _booking.travel_id  = _book_suppl.travel_id
-                                                     and _booking.booking_id = _book_suppl.booking_id
+                                                    and _booking.booking_id = _book_suppl.booking_id
 //    right outer join zdb_sfbooking as _booking on _travel.travel_id = _booking.travel_id
-//     join zdb_sfbooking as _booking on _travel.travel_id = _booking.travel_id
+//    join zdb_sfbooking as _booking on _travel.travel_id = _booking.travel_id
 {
   key _travel.travel_id         as TravelIdTravel,
       _booking.travel_id        as TravelIdBooking,

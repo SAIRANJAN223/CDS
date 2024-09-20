@@ -28,3 +28,5 @@ define view ZI_FIRST_CDS_VIEW
       currency_code as CurrencyCode
 }
 //where conditions are written here
+//Used in GUI
+//*cl_salv_gui_table_ida=>create_for_cds_view( 'ZI_CRMD_ORDER_H' )->fullscreen( )->display( ).

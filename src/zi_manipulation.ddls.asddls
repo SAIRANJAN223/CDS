@@ -33,7 +33,16 @@ define view ZI_MANIPULATION
     end as Journey,
     
     flight_price as Flight_Price,
-        
+    
+    case 
+        when flight_price > 1000
+            then flight_price - (division(flight_price,100,2) * 10)
+        when flight_price > 5000
+            then flight_price - (division(flight_price,100,2) * 20)
+        else
+            flight_price
+    end as DiscountedPrice,
+    
     case 
         when flight_price < 1000
             then 'First Class'

@@ -6,11 +6,13 @@ CLASS zcl_sflight_data DEFINITION
   PUBLIC SECTION.
     INTERFACES if_oo_adt_classrun.
 
-    METHODS getBooking.
-    CLASS-METHODS getTravel.
-    METHODS getCarrier.
-    CLASS-METHODS getCustomer.
-    CLASS-METHODS getBookSuppl.
+    METHODS getBookingDetails.
+    CLASS-METHODS getTravelDetails.
+    METHODS getCarrierDetails.
+    CLASS-METHODS getCustomerDetails.
+    CLASS-METHODS getBookSupplDetails.
+    METHODS getFlightDetails.
+    CLASS-METHODS getAgencyDetails.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -20,25 +22,31 @@ CLASS zcl_sflight_data IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
-    me->getBooking( ).
+    me->getBookingDetails( ).
     COMMIT WORK.
     out->write( 'Booking data inserted'  ).
-    me->getTravel( ).
+    me->getTravelDetails( ).
     COMMIT WORK.
     out->write( 'Travel data inserted'  ).
-    me->getcarrier( ).
+    me->getcarrierDetails( ).
     COMMIT WORK.
     out->write( 'Carrier data inserted' ).
-    getcustomer( ).
+    getcustomerDetails( ).
     COMMIT WORK.
     out->write( 'Customer data inserted' ).
-    getbooksuppl( ).
+    getbooksupplDetails( ).
     COMMIT WORK.
     out->write( 'Booking Supplement data inserted' ).
+    getFlightDetails( ).
+    COMMIT WORK.
+    out->write( 'Flight data inserted' ).
+    getAgencyDetails( ).
+    COMMIT WORK.
+    out->write( 'Agency data inserted' ).
 
   ENDMETHOD.
 
-  METHOD getBooking.
+  METHOD getBookingDetails.
 
     DELETE FROM zdb_sfbooking.
 
@@ -67,7 +75,7 @@ CLASS zcl_sflight_data IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD getTravel.
+  METHOD getTravelDetails.
 
     DELETE FROM zdb_sftravel.
 
@@ -94,7 +102,7 @@ CLASS zcl_sflight_data IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD getCarrier.
+  METHOD getCarrierDetails.
 
     DELETE FROM zdb_sfcarrier.
 
@@ -117,7 +125,7 @@ CLASS zcl_sflight_data IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD getCustomer.
+  METHOD getCustomerDetails.
 
     DELETE FROM zdb_sfcustomer.
 
@@ -142,7 +150,7 @@ CLASS zcl_sflight_data IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD getBookSuppl.
+  METHOD getBookSupplDetails.
 
     DELETE FROM zdb_sfbook_suppl.
 
@@ -157,5 +165,51 @@ CLASS zcl_sflight_data IMPLEMENTATION.
                    currency_code AS CurrencyCode ).
 
   ENDMETHOD.
+
+  METHOD getFlightDetails.
+
+    DELETE FROM zdb_sflight.
+
+    INSERT zdb_sflight
+        FROM ( SELECT FROM /dmo/flight
+                FIELDS
+                  carrier_id     AS Carrierid,
+                  connection_id  AS ConnectionId,
+                  flight_date    AS FlightDate,
+                  price          AS Price,
+                  currency_code  AS CurrencyCode,
+                  plane_type_id  AS PlaneTypeId,
+                  seats_max      AS SeatMax,
+                  seats_occupied AS  SeatMaxOcc ).
+
+  ENDMETHOD.
+
+  METHOD getAgencyDetails.
+
+    DELETE FROM zdb_sfagency.
+
+    INSERT zdb_sfagency
+        FROM ( SELECT FROM /dmo/agency
+                FIELDS
+                  agency_id AS AgencyId,
+                  name AS AgencyName,
+                  street AS Street,
+                  postal_code AS PostalCode,
+                  city AS City,
+                  country_code AS CountryCode,
+                  phone_number AS AgencyPhoneNumber,
+                  email_address AS AgencyEmailAddress,
+                  web_address AS WebsiteAddress,
+                  attachment AS Attachment,
+                  mime_type AS MimeType,
+                  filename AS FileName,
+                  local_created_by AS LocalCreatedBy,
+                  local_created_at AS LocalCreatedAt,
+                  local_last_changed_by AS LocalLastChangedBy,
+                  local_last_changed_at AS LocalLastChangedAt,
+                  last_changed_at AS LastChangedAt ).
+
+  ENDMETHOD.
+
 
 ENDCLASS.
